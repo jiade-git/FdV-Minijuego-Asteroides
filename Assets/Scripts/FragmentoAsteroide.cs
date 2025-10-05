@@ -6,9 +6,20 @@ public class FragmentoAsteroide : MonoBehaviour
     public float speed = 5f;
     public Vector3 targetVector; // se lo pasa la bala al crearlo
 
+    public float maxLifeTime = 0.5f;
+
+
+     void Start()
+    {
+        // Se autodestruye después de maxLifeTime segundos
+        Destroy(gameObject, maxLifeTime);
+    }
+
     void Update()
     {
         transform.Translate(speed * targetVector * Time.deltaTime);
+
+       
     }
 
     private void OnTriggerEnter(Collider other)
